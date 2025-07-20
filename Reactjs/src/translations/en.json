@@ -19,8 +19,8 @@
         "sum": "Sum",
         "date-range-invalid": "Date range invalid"
     },
-    "login": {
-        "login": "Login",
+    "signin": {
+        "signin": "signin",
         "username": "Username",
         "password": "Password",
         "userpass-wrong": "Invalid username or password!"

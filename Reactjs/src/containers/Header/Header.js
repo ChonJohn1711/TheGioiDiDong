@@ -9,7 +9,7 @@ import './Header.scss';
 class Header extends Component {
 
     render() {
-        const { processLogout } = this.props;
+        const { processSignout } = this.props;
 
         return (
             <div className="header-container">
@@ -18,8 +18,8 @@ class Header extends Component {
                     <Navigator menus={adminMenu} />
                 </div>
 
-                {/* nút logout */}
-                <div className="btn btn-logout" onClick={processLogout}>
+                {/* nút signout */}
+                <div className="btn btn-signout" onClick={processSignout}>
                     <i className="fas fa-sign-out-alt"></i>
                 </div>
             </div>
@@ -30,13 +30,13 @@ class Header extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedIn: state.admin.isLoggedIn
+        isSignedIn: state.admin.isSignedIn
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        processLogout: () => dispatch(actions.processLogout()),
+        processSignout: () => dispatch(actions.processSignout()),
     };
 };
 

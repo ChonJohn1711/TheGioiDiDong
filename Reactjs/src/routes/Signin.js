@@ -7,21 +7,21 @@ import { KeyCodeUtils, LanguageUtils } from "../utils";
 
 import userIcon from '../../src/assets/images/user.svg';
 import passIcon from '../../src/assets/images/pass.svg';
-import './Login.scss';
+import './Signin.scss';
 import { FormattedMessage } from 'react-intl';
 
 import adminService from '../services/adminService';
 
-class Login extends Component {
+class Signin extends Component {
     constructor(props) {
         super(props);
-        this.btnLogin = React.createRef();
+        this.btnSignin = React.createRef();
     }
 
     initialState = {
         username: '',
         password: '',
-        loginError: ''
+        signinError: ''
     }
 
     state = {
@@ -48,11 +48,11 @@ class Login extends Component {
         navigate(`${redirectPath}`);
     }
 
-    processLogin = () => {
+    processSignin = () => {
         const { username, password } = this.state;
 
-        const { adminLoginSuccess, adminLoginFail } = this.props;
-        let loginBody = {
+        const { adminSigninSuccess, adminSigninFail } = this.props;
+        let signinBody = {
             username: 'admin',
             password: '123456'
         }
@@ -64,13 +64,13 @@ class Login extends Component {
             "accessToken": "eyJhbGciOiJIU"
         }
 
-        adminLoginSuccess(adminInfo);
+        adminSigninSuccess(adminInfo);
         this.refresh();
         this.redirectToSystemPage();
         try {
-            adminService.login(loginBody)
+            adminService.signin(signinBody)
         } catch (e) {
-            console.log('error login : ', e)
+            console.log('error sign in : ', e)
         }
 
     }
@@ -79,8 +79,8 @@ class Login extends Component {
         const keyCode = event.which || event.keyCode;
         if (keyCode === KeyCodeUtils.ENTER) {
             event.preventDefault();
-            if (!this.btnLogin.current || this.btnLogin.current.disabled) return;
-            this.btnLogin.current.click();
+            if (!this.btnSignin.current || this.btnSignin.current.disabled) return;
+            this.btnSignin.current.click();
         }
     };
 
@@ -97,20 +97,20 @@ class Login extends Component {
     }
 
     render() {
-        const { username, password, loginError } = this.state;
+        const { username, password, signinError } = this.state;
         const { lang } = this.props;
 
         return (
-            <div className="login-wrapper">
-                <div className="login-container">
-                    <div className="form_login">
+            <div className="signin-wrapper">
+                <div className="signin-container">
+                    <div className="form_signin">
                         <h2 className="title">
-                            <FormattedMessage id="login.login" />
+                            <FormattedMessage id="signin.signin" />
                         </h2>
                         <div className="form-group icon-true">
                             <img className="icon" src={userIcon} alt="this" />
                             <input
-                                placeholder={LanguageUtils.getMessageByKey("login.username", lang)}
+                                placeholder={LanguageUtils.getMessageByKey("signin.username", lang)}
                                 id="username"
                                 name="username"
                                 type="text"
@@ -123,7 +123,7 @@ class Login extends Component {
                         <div id="phone-input-container" className="form-group icon-true">
                             <img className="icon" src={passIcon} alt="this" />
                             <input
-                                placeholder={LanguageUtils.getMessageByKey("login.password", lang)}
+                                placeholder={LanguageUtils.getMessageByKey("signin.password", lang)}
                                 id="password"
                                 name="password"
                                 type="password"
@@ -133,20 +133,20 @@ class Login extends Component {
                             />
                         </div>
 
-                        {loginError !== '' && (
-                            <div className='login-error'>
-                                <span className='login-error-message'>{loginError}</span>
+                        {signinError !== '' && (
+                            <div className='signin-error'>
+                                <span className='signin-error-message'>{signinError}</span>
                             </div>
                         )}
 
-                        <div className="form-group login">
+                        <div className="form-group signin">
                             <input
-                                ref={this.btnLogin}
-                                id="btnLogin"
+                                ref={this.btnSignin}
+                                id="btnSignin"
                                 type="submit"
                                 className="btn"
-                                value={LanguageUtils.getMessageByKey("login.login", lang)}
-                                onClick={this.processLogin}
+                                value={LanguageUtils.getMessageByKey("signin.signin", lang)}
+                                onClick={this.processSignin}
                             />
                         </div>
                     </div>
@@ -165,9 +165,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         navigate: (path) => dispatch(push(path)),
-        adminLoginSuccess: (adminInfo) => dispatch(actions.adminLoginSuccess(adminInfo)),
-        adminLoginFail: () => dispatch(actions.adminLoginFail()),
+        adminSigninSuccess: (adminInfo) => dispatch(actions.adminSigninSuccess(adminInfo)),
+        adminSigninFail: () => dispatch(actions.adminSigninFail()),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);

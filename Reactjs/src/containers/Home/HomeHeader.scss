@@ -1,0 +1,198 @@
+.HomeHeader-container {
+    .site-header {
+        background: #ffd600;
+
+        .top-banner {
+            display: block; // để margin auto có tác dụng
+            background: #FFEE5F;
+            width: 100%;
+            padding: 0 160px;
+
+            img {
+                width: 1185px; // độ rộng bạn muốn, có thể thay bằng % hoặc vw
+                height: 44px; // giữ tỉ lệ gốc
+                display: block; // để margin auto căn giữa nếu cần
+                margin: 0 auto;
+            }
+        }
+
+        .header-main {
+            background: #ffd600;
+            padding: 0 160px;
+
+            .header-container {
+                display: flex;
+                align-items: center;
+                padding: 12px 0;
+                padding-top: 30px;
+                background: #ffd600;
+
+                .logo {
+                    margin-right: 8px; // chỉ cách nhẹ logo và ô tìm kiếm
+
+                    img {
+                        height: 42px;
+                        width: 230px;
+                    }
+                }
+
+                .search-actions {
+                    display: flex;
+                    flex: 1;
+                    align-items: center;
+
+                    .search {
+                        flex: 1;
+                        position: relative;
+
+                        .btn-search {
+                            position: absolute;
+                            top: 50%;
+                            left: 12px; // đẩy icon vào sát lề trái của input
+                            transform: translateY(-50%);
+                            background: none;
+                            border: none;
+                            font-size: 16px;
+                            padding: 0;
+                            color: black;
+                            z-index: 1;
+                        }
+
+                        input {
+                            width: 100%;
+                            padding: 11px 12px 11px 35px; // đẩy chữ khởi động sang phải để chứa icon
+                            border-radius: 20px;
+                            border: none;
+                            outline: none;
+                            font-size: 12px;
+                        }
+                    }
+
+                    .optionBar {
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        margin-right: 160px;
+                        margin-left: 10px;
+                        font-size: 16px;
+
+                        .signIn,
+                        .cart,
+                        .map {
+                            display: flex;
+                            align-items: center;
+                            padding: 0 14px;
+                            border-radius: 4px;
+                            font-size: 14px;
+                            text-decoration: none;
+                            color: black;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: #fff27f;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-nav {
+            padding: 1px 160px;
+            background: #ffd600;
+
+            .nav-list {
+                display: flex;
+                text-align: center;
+                margin-top: 24px;
+                margin-bottom: 8px;
+                gap: 23px;
+                flex-wrap: nowrap;
+                font-size: 14px;
+
+                .deviceList,
+                .deviceListDown {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    color: black;
+                    position: relative;
+                    text-decoration: none;
+                    white-space: nowrap;
+
+                    img {
+                        width: 19px;
+                        height: 19px;
+                        display: block;
+                    }
+                }
+
+                .deviceList {
+                    .caret-icon-down {
+                        display: inline;
+                    }
+
+                    .caret-icon-up {
+                        display: none;
+                    }
+                }
+
+                .deviceListDown {
+                    .caret-icon-down {
+                        display: inline;
+                    }
+
+                    .caret-icon-up {
+                        display: none;
+                    }
+
+                    .phukienList {
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        background-color: white;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                        z-index: 999;
+                        border-radius: 4px;
+                        padding: 8px 0;
+                        min-width: 180px;
+                        list-style: none;
+
+                        li {
+                            padding: 6px 12px;
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: #f0f0f0;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        .phukienList {
+                            display: block;
+                        }
+
+                        .caret-icon-down {
+                            display: none;
+                        }
+
+                        .caret-icon-up {
+                            display: inline;
+                        }
+                    }
+                }
+
+                a {
+                    color: black;
+                    text-decoration: none;
+
+                    &:hover {
+                        background-color: #fff27f;
+                    }
+                }
+            }
+        }
+    }
+}
