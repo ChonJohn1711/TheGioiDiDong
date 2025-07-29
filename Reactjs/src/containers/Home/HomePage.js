@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
@@ -21,6 +22,7 @@ class HomePage extends Component {
     }
 
     render() {
+        console.log('check props: ', this.props)
         return (
             <div className='HomePage-container'>
                 <div className="site-header">
@@ -30,17 +32,17 @@ class HomePage extends Component {
                 </div>
                 <div className="promo-online">
 
-                    <div className='onlineSale'>Khuyến mãi Online</div>
+                    <div className='onlineSale'><FormattedMessage id="home-page.promotion" /></div>
                     <div className="promo-wrapper">
                         <ul className="promo-tabs">
                             <button className="deviceBar image-btn"><img src={Flash_Sale} /></button>
                             <button className="deviceBar image-btn"><img src={Online_Only} /></button>
-                            <li className="deviceBar text-btn">Điện thoại</li>
+                            <li className="deviceBar text-btn"><FormattedMessage id="home-header.phone" /></li>
                             <li className="deviceBar text-btn">Apple</li>
                             <li className="deviceBar text-btn">Laptop</li>
-                            <li className="deviceBar text-btn">Phụ kiện</li>
-                            <li className="deviceBar text-btn">Đồng hồ</li>
-                            <li className="deviceBar text-btn">PC, Máy in</li>
+                            <li className="deviceBar text-btn"><FormattedMessage id="home-header.accessory" /></li>
+                            <li className="deviceBar text-btn"><FormattedMessage id="home-header.watch" /></li>
+                            <li className="deviceBar text-btn"><FormattedMessage id="home-page.pc_printer" /></li>
                         </ul>
 
                         <div className="time-header">
@@ -117,13 +119,14 @@ class HomePage extends Component {
 
 const mapStateToProps = state => {
     return {
-        isSignedIn: state.admin.isSignedIn
+        isSignedIn: state.admin.isSignedIn,
+        language: state.app.language,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        processSignout: () => dispatch(actions.processSignout()),
+        // processSignout: () => dispatch(actions.processSignout()),
     };
 };
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
@@ -26,6 +27,8 @@ class HomeHeader extends Component {
     }
 
     render() {
+        const { intl } = this.props;
+        const placeholderSearch = intl.formatMessage({ id: 'home-header.search' });
         return (
             <div className="HomeHeader-container">
                 <div className="site-header">
@@ -46,20 +49,20 @@ class HomeHeader extends Component {
                                     </button>
                                     <input
                                         type="text"
-                                        placeholder="Bạn tìm gì..."
+                                        placeholder={placeholderSearch}
                                         onKeyPress={e => e.key === 'Enter' && this.handleSearch()}
                                     />
                                 </div>
                                 <div className="optionBar">
                                     <Link className="signIn" to="/signin">
                                         <i className="fas fa-user px-2" />
-                                        Đăng nhập
+                                        <FormattedMessage id="home-header.signin" />
                                     </Link>
                                     <Link className="cart" to="/cart">
                                         <i className="fas fa-cart-shopping px-2" />
-                                        Giỏ hàng
+                                        <FormattedMessage id="home-header.cart" />
                                     </Link>
-                                    <div className="map" onClick={() => this.handleMap()}><i className="fas fa-map-marker-alt px-2" />Hồ Chí Minh</div>
+                                    <div className="map" onClick={() => this.handleMap()}><i className="fas fa-map-marker-alt px-2" /><FormattedMessage id="home-header.HCM" /></div>
                                 </div>
                             </div>
                         </div>
@@ -68,24 +71,24 @@ class HomeHeader extends Component {
                     <div className="main-nav">
                         <div className="nav-list">
                             <a href="#" className="deviceList">
-                                <i className="fa-solid fa-mobile-screen"></i>Điện thoại
+                                <i className="fa-solid fa-mobile-screen"></i><FormattedMessage id="home-header.phone" />
                             </a>
                             <a href="#" className="deviceList">
                                 <i className="fa-solid fa-laptop"></i>Laptop
                             </a>
                             <a href="#" className="deviceListDown">
-                                <i className="fa-solid fa-headphones-simple"></i>Phụ kiện
+                                <i className="fa-solid fa-headphones-simple"></i><FormattedMessage id="home-header.accessory" />
                                 <i className="fa-solid fa-caret-down caret-icon-down"></i>
                                 <i className="fa-solid fa-caret-up caret-icon-up"></i>
                                 <ul className="phukienList">
-                                    <li>Ốp lưng</li>
-                                    <li>Sạc dự phòng</li>
-                                    <li>Tai nghe</li>
-                                    <li>Chuột</li>
-                                    <li>Bàn phím</li>
-                                    <li>Thẻ nhớ</li>
-                                    <li>Cáp sạc</li>
-                                    <li>Loa Bluetooth</li>
+                                    <li><FormattedMessage id="home-header.case" /></li>
+                                    <li><FormattedMessage id="home-header.backup_charger" /></li>
+                                    <li><FormattedMessage id="home-header.earphone" /></li>
+                                    <li><FormattedMessage id="home-header.mouse" /></li>
+                                    <li><FormattedMessage id="home-header.keyboard" /></li>
+                                    <li><FormattedMessage id="home-header.memory_card" /></li>
+                                    <li><FormattedMessage id="home-header.charging_cable" /></li>
+                                    <li><FormattedMessage id="home-header.bluetooth_speaker" /></li>
                                 </ul>
                             </a>
 
@@ -93,52 +96,52 @@ class HomeHeader extends Component {
                                 <i className='smartwatch'><img src={smartwatch} /></i>Smartwatch
                             </a>
                             <a href="#" className="deviceList">
-                                <i className='smartwatch'><img src={watch} /></i>Đồng hồ
+                                <i className='smartwatch'><img src={watch} /></i><FormattedMessage id="home-header.watch" />
                             </a>
                             <a href="#" className="deviceList">
                                 <i className="fa-solid fa-tablet-screen-button"></i>Tablet
                             </a>
                             <a href="#" className="deviceListDown">
-                                <i className='smartwatch'><img src={may_cu} /></i>Máy cũ, thu cũ
+                                <i className='smartwatch'><img src={may_cu} /></i><FormattedMessage id="home-header.old_trade-in" />
                                 <i className="fa-solid fa-caret-down caret-icon-down"></i>
                                 <i className="fa-solid fa-caret-up caret-icon-up"></i>
                                 <ul className="phukienList">
-                                    <li>Máy cũ giá tốt</li>
-                                    <li>Thu cũ đổi mới</li>
-                                    <li>Thu mua máy cũ</li>
+                                    <li><FormattedMessage id="home-header.old_good" /></li>
+                                    <li><FormattedMessage id="home-header.trade-in_for_new" /></li>
+                                    <li><FormattedMessage id="home-header.trade-in" /></li>
                                 </ul>
                             </a>
                             <a href="#" className="deviceListDown">
-                                <i className="fa-solid fa-computer"></i>Màn hình, máy in
+                                <i className="fa-solid fa-computer"></i><FormattedMessage id="home-header.monitor_printer" />
                                 <i className="fa-solid fa-caret-down caret-icon-down"></i>
                                 <i className="fa-solid fa-caret-up caret-icon-up"></i>
                                 <ul className="phukienList">
-                                    <li>Máy tính để bàn</li>
-                                    <li>Màn hình máy tính</li>
-                                    <li>Giá treo màn hình</li>
-                                    <li>Myas chơi game</li>
-                                    <li>Phần mềm</li>
-                                    <li>Mực in</li>
-                                    <li>Máy in</li>
+                                    <li><FormattedMessage id="home-header.desktop" /></li>
+                                    <li><FormattedMessage id="home-header.computer_screen" /></li>
+                                    <li><FormattedMessage id="home-header.monitor_mount" /></li>
+                                    <li><FormattedMessage id="home-header.game_console" /></li>
+                                    <li><FormattedMessage id="home-header.software" /></li>
+                                    <li><FormattedMessage id="home-header.printer_ink" /></li>
+                                    <li><FormattedMessage id="home-header.printer" /></li>
                                 </ul>
                             </a>
                             <a href="#" className="deviceListDown">
-                                <i className="fa-solid fa-sim-card"></i>Sim, thẻ cào
+                                <i className="fa-solid fa-sim-card"></i><FormattedMessage id="home-header.sim_scratch-card" />
                                 <i className="fa-solid fa-caret-down caret-icon-down"></i>
                                 <i className="fa-solid fa-caret-up caret-icon-up"></i>
                                 <ul className="phukienList">
-                                    <li>Sim, thẻ cào</li>
-                                    <li>eSim du lịch</li>
+                                    <li><FormattedMessage id="home-header.sim_scratch-card" /></li>
+                                    <li><FormattedMessage id="home-header.travel-eSIM" /></li>
                                 </ul>
                             </a>
                             <a href="#" className="deviceListDown">
-                                <i className="fa-solid fa-bell-concierge"></i>Dịch vụ tiện ích
+                                <i className="fa-solid fa-bell-concierge"></i><FormattedMessage id="home-header.services" />
                                 <i className="fa-solid fa-caret-down caret-icon-down"></i>
                                 <i className="fa-solid fa-caret-up caret-icon-up"></i>
                                 <ul className="phukienList">
-                                    <li>Thanh toán hóa đơn</li>
-                                    <li>Bảo hành - bảo hiểm</li>
-                                    <li>Tiện ích viễn thông</li>
+                                    <li><FormattedMessage id="home-header.bill" /></li>
+                                    <li><FormattedMessage id="home-header.warranty" /></li>
+                                    <li><FormattedMessage id="home-header.facility" /></li>
                                 </ul>
                             </a>
                         </div>
@@ -161,4 +164,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(HomeHeader));

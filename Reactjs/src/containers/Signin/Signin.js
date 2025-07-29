@@ -34,11 +34,25 @@ class Signin extends Component {
                         </div>
                         <div className="order-lookup-box">
                             <h2>Tra cứu thông tin đơn hàng</h2>
-                            <div className="phonenumberInput">
-                                <i className="fas fa-mobile-alt"></i>
-                                <input
-                                    type="text"
-                                    placeholder="Nhập số điện thoại mua hàng" />
+                            <div className="userInput">
+                                <div className="inputGroup">
+                                    <i className="fas fa-mobile-alt icon" />
+                                    <input type="text" placeholder="Nhập số điện thoại mua hàng" />
+                                </div>
+
+                                <div className="inputGroup passwordGroup">
+                                    <input
+                                        type={this.state.showPassword ? 'text' : 'password'}
+                                        placeholder="Nhập mật khẩu"
+                                    />
+                                    <i
+                                        className={`fa-regular ${this.state.showPassword ? 'fa-eye' : 'fa-eye-slash'} icon toggle-password`}
+                                        onClick={() => this.setState({ showPassword: !this.state.showPassword })}
+                                        style={{ cursor: 'pointer' }}
+                                    />
+
+                                </div>
+
                             </div>
                             <button className="btn-continue">TIẾP TỤC</button>
                         </div>

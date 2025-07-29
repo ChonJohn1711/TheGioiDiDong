@@ -31,28 +31,44 @@
                 margin-bottom: 25px;
             }
 
-            .phonenumberInput {
-                position: relative;
-                margin-bottom: 20px;
+            .userInput {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                max-width: 400px;
+                margin: 0 auto;
+                margin-bottom: 10px;
 
-                i {
-                    position: absolute;
-                    top: 50%;
-                    left: 12px;
-                    transform: translateY(-50%);
-                    color: #888;
+                .inputGroup {
+                    position: relative;
+
+                    input {
+                        width: 100%;
+                        padding: 12px 40px;
+                        border: 1px solid #ccc;
+                        border-radius: 25px;
+                        font-size: 14px;
+                        outline: none;
+                        transition: border-color 0.3s ease;
+
+                        &:focus {
+                            border-color: #ff8800;
+                        }
+                    }
+
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        right: 19px;
+                        transform: translateY(-50%);
+                    }
                 }
 
-                input {
-                    width: 100%;
-                    padding: 12px 12px 12px 38px;
-                    border: 1px solid #ccc;
-                    border-radius: 25px;
-                    font-size: 14px;
-                    outline: none;
-
-                    &:focus {
-                        border-color: #ff8800;
+                .passwordGroup {
+                    .toggle-password {
+                        left: auto;
+                        right: 15px;
+                        cursor: pointer;
                     }
                 }
             }
