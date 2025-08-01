@@ -24,18 +24,16 @@ class Cart extends Component {
 
     render() {
         return (
-            <>
-                <div className="Cart-container">
-                    <HomeHeader />
-                    <div className="iconcart-empty">
-                        <img src={Cart_empty} />
-                        <h1>Giỏ hàng trống</h1>
-                        <span className="dmx">Không có sản phẩm nào trong giỏ hàng</span>
-                        <Link to="/homepage" className="btn-backhome">Về trang chủ</Link>
-                        <div className='note-help'>Khi cần trợ giúp vui lòng gọi <a href="#">1900 232 460</a> hoặc <a href="#">028.3622.1060</a> (8h00 - 21h30)</div>
-                    </div>
+            <div className="Cart-container">
+                <HomeHeader />
+                <div className="iconcart-empty">
+                    <img src={Cart_empty} />
+                    <h1>Giỏ hàng trống</h1>
+                    <span className="dmx">Không có sản phẩm nào trong giỏ hàng</span>
+                    <Link to="/homepage" className="btn-backhome">Về trang chủ</Link>
+                    <div className='note-help'>Khi cần trợ giúp vui lòng gọi <a href="#">1900 232 460</a> hoặc <a href="#">028.3622.1060</a> (8h00 - 21h30)</div>
                 </div>
-            </>
+            </div>
         );
     }
 }

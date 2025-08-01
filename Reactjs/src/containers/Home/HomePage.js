@@ -7,6 +7,7 @@ import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
 import './HomePage.scss';
 import HomeHeader from './HomeHeader.js'
+import Product from '../Section/Product.js'
 
 import DealAd from '../../assets/Home/DealAd.png'
 import Facebook from '../../assets/Home/Facebook.png'
@@ -100,7 +101,12 @@ class HomePage extends Component {
                                 </div>
                             ))}
                         </div>
-                        <h1>sản phẩm siêu sale:</h1>
+                    </div>
+
+                    <Product />
+                    <div className="promo-wrapper">
+
+                        <h1>Gợi ý cho bạn</h1>
                         <div className="promo-items">
                             {[...Array(12)].map((_, i) => (
                                 <div className="item" key={i}>

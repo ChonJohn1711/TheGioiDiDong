@@ -5,7 +5,6 @@ import { ConnectedRouter as Router } from 'connected-react-router';
 import { history } from '../redux'
 import { ToastContainer } from 'react-toastify';
 
-
 import { userIsAuthenticated, userIsNotAuthenticated } from '../hoc/authentication';
 
 import { path } from '../utils'
@@ -17,6 +16,8 @@ import Cart from './Cart/Cart';
 import HomePage from './Home/HomePage';
 import Header from './Header/Header';
 import System from '../routes/System';
+
+import CustomScrollbars from '../components/CustomScrollbars';
 
 import { CustomToastCloseButton } from '../components/CustomToast';
 import ConfirmModal from '../components/ConfirmModal';
@@ -50,13 +51,15 @@ class App extends Component {
                         {this.props.isSignedIn && <Header />}
 
                         <span className="content-container">
-                            <Switch>
-                                <Route path={path.HOME} exact component={userIsAuthenticated(Home)} />
-                                <Route path={path.HOMEPAGE} component={HomePage} />
-                                <Route path={path.SIGNIN} component={userIsNotAuthenticated(Signin)} />
-                                <Route path={path.CART} component={Cart} />
-                                <Route path={path.SYSTEM} component={System} />
-                            </Switch>
+                            <CustomScrollbars style={{ height: '100vh', width: '100%' }}>
+                                <Switch>
+                                    <Route path={path.HOME} exact component={userIsAuthenticated(Home)} />
+                                    <Route path={path.HOMEPAGE} component={HomePage} />
+                                    <Route path={path.SIGNIN} component={userIsNotAuthenticated(Signin)} />
+                                    <Route path={path.CART} component={Cart} />
+                                    <Route path={path.SYSTEM} component={System} />
+                                </Switch>
+                            </CustomScrollbars>
                         </span>
 
                         <ToastContainer
