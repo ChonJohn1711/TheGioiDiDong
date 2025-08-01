@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import { LANGUAGES } from '../../utils'
+
+import { changeLanguageApp } from '../../store/actions'
 
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
@@ -26,9 +29,15 @@ class HomeHeader extends Component {
         alert('ok');
     }
 
+    changeLanguage = (language) => {
+        this.props.changeLanguageAppRedux(language)
+        // fire redux event : actions
+    }
+
     render() {
         const { intl } = this.props;
         const placeholderSearch = intl.formatMessage({ id: 'home-header.search' });
+        let language = this.props.language;
         return (
             <div className="HomeHeader-container">
                 <div className="site-header">
@@ -63,6 +72,11 @@ class HomeHeader extends Component {
                                         <FormattedMessage id="home-header.cart" />
                                     </Link>
                                     <div className="map" onClick={() => this.handleMap()}><i className="fas fa-map-marker-alt px-2" /><FormattedMessage id="home-header.HCM" /></div>
+
+                                    <div className='language'>
+                                        <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'} onClick={() => this.changeLanguage(LANGUAGES.VI)}>VI</div>
+                                        <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'} onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -154,13 +168,15 @@ class HomeHeader extends Component {
 
 const mapStateToProps = state => {
     return {
-        isSignedIn: state.admin.isSignedIn
+        isSignedIn: state.admin.isSignedIn,
+        language: state.app.language,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        processSignout: () => dispatch(actions.processSignout()),
+        // processSignout: () => dispatch(actions.processSignout()),
+        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
     };
 };
 
