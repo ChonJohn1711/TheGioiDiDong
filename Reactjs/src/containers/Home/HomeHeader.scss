@@ -1,12 +1,19 @@
 .HomeHeader-container {
+    background: #ffd600;
+    top: 0;
+    position: sticky;
+    z-index: 10000;
+
     .site-header {
-        background: #ffd600;
+        max-width: 1200px; // hoặc 1024px, 1180px tuỳ theo thiết kế
+        margin: 0 auto; // căn giữa theo chiều ngang
+        width: 100%; // chiếm hết chiều ngang khung chứa
+        box-sizing: border-box;
 
         .top-banner {
             display: block; // để margin auto có tác dụng
             background: #FFEE5F;
             width: 100%;
-            padding: 0 160px;
 
             img {
                 width: 1185px; // độ rộng bạn muốn, có thể thay bằng % hoặc vw
@@ -17,9 +24,6 @@
         }
 
         .header-main {
-            background: #ffd600;
-            padding: 0 160px;
-
             .header-container {
                 display: flex;
                 align-items: center;
@@ -96,7 +100,7 @@
                         .language {
                             display: flex;
                             color: black;
-                            font-size: 14px;
+                            font-size: 16px;
 
                             position: absolute; // hoặc fixed nếu bạn muốn nó luôn hiện ở đó khi cuộn
                             right: 0;
@@ -133,8 +137,7 @@
         }
 
         .main-nav {
-            padding: 1px 160px;
-            background: #ffd600;
+            padding: 1px 0;
 
             .nav-list {
                 display: flex;

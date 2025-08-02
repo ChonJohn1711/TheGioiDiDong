@@ -2,27 +2,23 @@
     max-width: 100%;
     text-align: center;
 
-    .product-title {
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 20px;
-        color: #222;
-    }
-
     .product-slider {
         .slick-track {
             display: flex !important;
         }
 
         .slick-slide {
-            padding: 15px 5px; // ← cách nhau 10px tổng thể
+            padding: 15px 5px;
             box-sizing: border-box;
         }
 
         .product-card {
+            cursor: pointer;
             background-color: #fff;
             border-radius: 12px;
             transition: transform 0.3s;
+            border: none;
+            outline: none;
 
             &:hover {
                 transform: translateY(-5px);
