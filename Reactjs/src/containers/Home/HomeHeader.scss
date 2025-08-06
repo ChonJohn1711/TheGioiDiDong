@@ -141,12 +141,12 @@
 
             .nav-list {
                 display: flex;
-                text-align: center;
                 margin-top: 24px;
                 margin-bottom: 8px;
                 gap: 15px;
                 flex-wrap: nowrap;
                 font-size: 14px;
+                justify-content: center;
 
                 .deviceList,
                 .deviceListDown {

@@ -17,9 +17,9 @@ import may_cu from '../../assets/Header/may_cu.png'
 
 class HomeHeader extends Component {
 
-    componentDidMount() {
-        // nếu cần khởi tạo gì thì làm ở đây
-    }
+    // componentDidMount() {
+    //     // nếu cần khởi tạo gì thì làm ở đây
+    // }
 
     handleSearch = () => {
         alert('ok');
@@ -32,6 +32,10 @@ class HomeHeader extends Component {
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
         // fire redux event : actions
+    }
+
+    handleEditAddress = (address) => {
+        alert('ok');
     }
 
     render() {
@@ -168,7 +172,7 @@ class HomeHeader extends Component {
 
 const mapStateToProps = state => {
     return {
-        isSignedIn: state.admin.isSignedIn,
+        isSignedIn: state.user.isSignedIn,
         language: state.app.language,
     };
 };

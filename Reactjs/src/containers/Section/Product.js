@@ -60,8 +60,8 @@ class Product extends Component {
 }
 
 const mapStateToProps = state => ({
-    isSignedIn: state.admin.isSignedIn,
-    language: state.app.language,
+    // isSignedIn: state.user.isSignedIn,
+    // language: state.app.language,
 });
 
 export default connect(mapStateToProps)(Product);

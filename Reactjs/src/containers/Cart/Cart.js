@@ -11,27 +11,16 @@ import Cart_empty from '../../assets/Cart/Cart_empty.png'
 import { FormattedMessage } from 'react-intl';
 
 class Cart extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: '',
-            errorCart: '',
-            errorMessage: '',
-            showPassword: false
-        };
-    }
-
     render() {
         return (
             <div className="Cart-container">
                 <HomeHeader />
                 <div className="iconcart-empty">
                     <img src={Cart_empty} />
-                    <h1>Giỏ hàng trống</h1>
-                    <span className="dmx">Không có sản phẩm nào trong giỏ hàng</span>
-                    <Link to="/homepage" className="btn-backhome">Về trang chủ</Link>
-                    <div className='note-help'>Khi cần trợ giúp vui lòng gọi <a href="#">1900 232 460</a> hoặc <a href="#">028.3622.1060</a> (8h00 - 21h30)</div>
+                    <h1><FormattedMessage id="Cart.empty_cart" /></h1>
+                    <span className="dmx"><FormattedMessage id="Cart.empty_product_in_cart" /></span>
+                    <Link to="/homepage" className="btn-backhome"><FormattedMessage id="Cart.back_to_homepage" /></Link>
+                    <div className='note-help'><FormattedMessage id="Cart.text1" /><a href="#">1900 232 460</a> <FormattedMessage id="Cart.text2" /> <a href="#">028.3622.1060</a> (8h00 - 21h30)</div>
                 </div>
             </div>
         );

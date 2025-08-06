@@ -6,7 +6,7 @@ class Home extends Component {
 
     render() {
         const { isSignedIn } = this.props;
-        let linkToRedirect = isSignedIn ? '/system/user-manage' : '/homepage';
+        let linkToRedirect = isSignedIn ? '/system/user-manage' : '/signin';
 
         return (
             <Redirect to={linkToRedirect} />
@@ -17,7 +17,7 @@ class Home extends Component {
 
 const mapStateToProps = state => {
     return {
-        isSignedIn: state.admin.isSignedIn
+        isSignedIn: state.user.isSignedIn
     };
 };
 

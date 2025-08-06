@@ -21,9 +21,9 @@ import Online_Only from '../../assets/Home/Online_Only.png'
 
 class HomePage extends Component {
 
-    componentDidMount() {
-        // nếu cần khởi tạo gì thì làm ở đây
-    }
+    // componentDidMount() {
+    //     // nếu cần khởi tạo gì thì làm ở đây
+    // }
 
     render() {
         console.log('check props: ', this.props)
@@ -75,7 +75,7 @@ class HomePage extends Component {
                         <div className='onlineSale'><FormattedMessage id="home-page.promotion" /></div>
 
                         <div className="promo-wrapper">
-                            <ul className="promo-tabs">
+                            <div className="promo-tabs">
                                 <button className="deviceBar image-btn"><img src={Flash_Sale} /></button>
                                 <button className="deviceBar image-btn"><img src={Online_Only} /></button>
                                 <li className="deviceBar text-btn"><FormattedMessage id="home-header.phone" /></li>
@@ -84,21 +84,21 @@ class HomePage extends Component {
                                 <li className="deviceBar text-btn"><FormattedMessage id="home-header.accessory" /></li>
                                 <li className="deviceBar text-btn"><FormattedMessage id="home-header.watch" /></li>
                                 <li className="deviceBar text-btn"><FormattedMessage id="home-page.pc_printer" /></li>
-                            </ul>
+                            </div>
 
                             <div className="time-header">
                                 <div className="countdown-box">
-                                    <span>Chỉ còn:</span>
-                                    <div className="countdown">00 : 00 : 00</div>
+                                    <span className='countdown-text'><FormattedMessage id="home-page.only_left" /></span>
+                                    <div className="countdown-time">00 : 00 : 00</div>
                                 </div>
-                                <ul className="time-slots">
+                                <div className="time-slots">
                                     {['15:00', '18:00'].map((t, i) => (
                                         <li key={i}>
-                                            <span className="label">Sắp diễn ra</span>
+                                            <span className="label"><FormattedMessage id="home-page.come_soon" /></span>
                                             <span className="time">{t}</span>
                                         </li>
                                     ))}
-                                </ul>
+                                </div>
                             </div>
 
                             <div className="promo-items">
@@ -116,7 +116,7 @@ class HomePage extends Component {
                         <Product />
 
                         <div className="promo-wrapper">
-                            <h1>Gợi ý cho bạn</h1>
+                            <span className='suggests'><FormattedMessage id="home-page.suggests" /></span>
                             <div className="promo-items">
                                 {[...Array(18)].map((_, i) => (
                                     <div className="item" key={i}>
@@ -145,15 +145,15 @@ class HomePage extends Component {
                     </div>
                 </div>
                 <Support />
-            </div>
+            </div >
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        isSignedIn: state.admin.isSignedIn,
-        language: state.app.language,
+        // isSignedIn: state.user.isSignedIn,
+        // language: state.app.language,
     };
 };
 

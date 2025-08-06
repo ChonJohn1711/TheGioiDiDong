@@ -57,7 +57,7 @@ class App extends Component {
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.SIGNIN} component={userIsNotAuthenticated(Signin)} />
                                     <Route path={path.CART} component={Cart} />
-                                    <Route path={path.SYSTEM} component={System} />
+                                    <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
                                 </Switch>
                             </CustomScrollbars>
                         </span>
@@ -78,7 +78,7 @@ class App extends Component {
 const mapStateToProps = state => {
     return {
         started: state.app.started,
-        isSignedIn: state.admin.isSignedIn
+        isSignedIn: state.user.isSignedIn
     };
 };
 

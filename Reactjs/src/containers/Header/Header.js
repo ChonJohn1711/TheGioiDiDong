@@ -30,7 +30,7 @@ class Header extends Component {
 
 const mapStateToProps = state => {
     return {
-        isSignedIn: state.admin.isSignedIn
+        isSignedIn: state.user.isSignedIn
     };
 };
 

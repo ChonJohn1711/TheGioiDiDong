@@ -36,7 +36,23 @@
     },
     "home-page": {
         "promotion": "Online Promotions",
-        "pc_printer": "PC, Printer"
+        "pc_printer": "PC, Printer",
+        "suggests": "Suggests for you:",
+        "only_left": "Only left:",
+        "come_soon": "Coming soon"
+    },
+    "Signin": {
+        "order_info": "Order information lookup",
+        "phone_input": "Enter purchase phone number",
+        "password_input": "Enter password",
+        "continue": "CONTINUE"
+    },
+    "Cart": {
+        "empty_cart": "Empty cart",
+        "empty_product_in_cart": "There are no products in the cart",
+        "back_to_homepage": "Back to homepage",
+        "text1": "For assistance, please call ",
+        "text2": "or "
     },
     "common": {
         "add": "Add",

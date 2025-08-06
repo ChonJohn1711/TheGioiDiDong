@@ -36,7 +36,23 @@
     },
     "home-page": {
         "promotion": "Khuyễn mãi Online",
-        "pc_printer": "PC, Máy in"
+        "pc_printer": "PC, Máy in",
+        "suggests": "Gợi ý cho bạn:",
+        "only_left": "Chỉ còn:",
+        "come_soon": "Sắp diễn ra"
+    },
+    "Signin": {
+        "order_info": "Tra cứu thông tin đơn hàng",
+        "phone_input": "Nhập số điện thoại mua hàng",
+        "password_input": "Nhập mật khẩu",
+        "continue": "TIẾP TỤC"
+    },
+    "Cart": {
+        "empty_cart": "Giỏ hàng trống",
+        "empty_product_in_cart": "Không có sản phẩm nào trong giỏ hàng",
+        "back_to_homepage": "Về trang chủ",
+        "text1": "Khi cần trợ giúp vui lòng gọi ",
+        "text2": "hoặc "
     },
     "common": {
         "add": "Thêm",
