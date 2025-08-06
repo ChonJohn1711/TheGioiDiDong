@@ -4,19 +4,24 @@
     z-index: 99;
     display: flex;
     justify-content: space-between;
-    background-color: $colormain;
-    color: $common-text-color;
+    background-color: rgb(255, 184, 51);
+    color: white;
     height: 40px;
     position: relative;
 
+    .header-tabs-container {
+        background-color: #ff6600;
+    }
+
     .btn-signout {
-        color: $common-text-color;
         line-height: 40px;
         height: 40px;
         padding: 0 10px;
+        color: red;
+        background-color: #eeff00;
 
         &:hover {
-            background-color: darken($colormain, 5);
+            background-color: darken(#eeff00, 5);
         }
 
         i {

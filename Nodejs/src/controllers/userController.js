@@ -21,7 +21,7 @@ let handleSignin = async (req, res) => {
 }
 
 let handleGetAllUsers = async (req, res) => {
-    let id = req.body.id; // ALL, id
+    let id = req.query.id; // ALL, id
 
     if (!id) {
         return res.status(200).json({
@@ -41,7 +41,14 @@ let handleGetAllUsers = async (req, res) => {
     })
 }
 
+let handleCreateNewUser = async (req, res) => {
+    let message = await userService.creatNewUser(req.body);
+    console.log(message);
+    return res.status(200).json(message)
+}
+
 module.exports = {
     handleSignin: handleSignin,
     handleGetAllUsers: handleGetAllUsers,
+    handleCreateNewUser: handleCreateNewUser,
 }
