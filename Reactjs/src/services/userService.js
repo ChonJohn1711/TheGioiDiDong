@@ -8,4 +8,9 @@ const getAllUsersAPI = async (inputId) => {
     return axios.get(`api/get-all-users?id=${inputId}`)
 }
 
-export { handleSigninAPI, getAllUsersAPI }
+const createNewUserAPI = async (data) => {
+    console.log('check data from service: ', data)
+    return axios.post('/api/create-new-user', data)
+}
+
+export { handleSigninAPI, getAllUsersAPI, createNewUserAPI }

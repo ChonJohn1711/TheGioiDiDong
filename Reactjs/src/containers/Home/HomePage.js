@@ -21,9 +21,9 @@ import Online_Only from '../../assets/Home/Online_Only.png'
 
 class HomePage extends Component {
 
-    // componentDidMount() {
-    //     // nếu cần khởi tạo gì thì làm ở đây
-    // }
+    componentDidMount() {
+        // nếu cần khởi tạo gì thì làm ở đây
+    }
 
     render() {
         console.log('check props: ', this.props)

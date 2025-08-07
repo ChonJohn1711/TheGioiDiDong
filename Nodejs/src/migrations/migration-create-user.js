@@ -31,7 +31,7 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       roleId: {
-        type: Sequelize.STRING
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

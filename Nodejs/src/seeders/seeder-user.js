@@ -11,7 +11,7 @@ module.exports = {
         phonenumber: '0123456789',
         password: '123456',
         address: 'Campuchia',
-        roleId: 'R1',
+        roleId: true,
         gender: false,
         createdAt: new Date(),
         updatedAt: new Date(),

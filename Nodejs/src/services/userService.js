@@ -108,14 +108,14 @@ let creatNewUser = (data) => {
                     phonenumber: data.phonenumber,
                     password: hashPasswordFromBcrypt,
                     address: data.address,
-                    gender: data.gender === 1 ? true : false,
-                    roleId: data.roleId,
+                    gender: Number(data.gender) === 1 ? true : false,
+                    roleId: Number(data.roleId) === 1 ? true : false,
                 })
             }
 
             resolve({
                 errCode: 0,
-                errMessage: 'OK!!!!!'
+                message: 'OK!!!!!'
             })
         } catch (e) {
             reject(e);
@@ -134,8 +134,73 @@ let hashUserPassword = (password) => {
     })
 }
 
+let deleteUser = (userId) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let user = await db.Users.findOne({
+                where: { id: userId }
+            })
+            if (!user) {
+                resolve({
+                    errCode: 2,
+                    errMessage: `User isn't exist!!!!!`
+                })
+            }
+
+            await user.destroy();
+
+            resolve({
+                errCode: 0,
+                message: 'Delete user succeeded!!!!!'
+            })
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
+let editUser = (data) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            if (!data.id) {
+                resolve({
+                    errCode: 1,
+                    errMessage: "Missing required parameter!!!!!"
+                });
+            }
+
+            let user = await db.Users.findOne({
+                where: { id: data.id }
+            })
+
+            if (!user) {
+                resolve({
+                    errCode: 2,
+                    errMessage: `User isn't exist!!!!!`
+                })
+            } else {
+                user.firstName = data.firstName;
+                user.lastName = data.lastName;
+                user.email = data.email;
+                user.address = data.address;
+                user.gender = Number(data.gender) === 1 ? true : false;
+                await user.save();
+
+                resolve({
+                    errCode: 0,
+                    message: "User updated successfully"
+                });
+            }
+        } catch (e) {
+            reject(e);
+        }
+    })
+}
+
 module.exports = {
     handleUserSignin: handleUserSignin,
     getAllUsers: getAllUsers,
     creatNewUser: creatNewUser,
+    deleteUser: deleteUser,
+    editUser: editUser,
 }

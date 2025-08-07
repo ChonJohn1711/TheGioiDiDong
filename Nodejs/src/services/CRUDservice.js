@@ -14,8 +14,8 @@ let createUser = async (data) => {
                 phonenumber: data.phonenumber,
                 password: hashPasswordFromBcrypt,
                 address: data.address,
-                gender: data.gender === 1 ? true : false,
-                roleId: data.roleId,
+                gender: Number(data.gender) === 1 ? true : false,
+                roleId: Number(data.roleId) === 1 ? true : false,
             })
             resolve('Create user succeeded!!!!!')
         } catch (e) {

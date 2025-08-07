@@ -17,9 +17,9 @@ import may_cu from '../../assets/Header/may_cu.png'
 
 class HomeHeader extends Component {
 
-    // componentDidMount() {
-    //     // nếu cần khởi tạo gì thì làm ở đây
-    // }
+    componentDidMount() {
+        // nếu cần khởi tạo gì thì làm ở đây
+    }
 
     handleSearch = () => {
         alert('ok');
